@@ -6,7 +6,6 @@ import (
 	"io"
 	"log"
 	"os"
-	"runtime"
 	"strconv"
 	"strings"
 )
@@ -16,10 +15,7 @@ var out io.Writer = os.Stdout
 
 func readString() string {
 	line, _ := reader.ReadString('\n')
-	if os := runtime.GOOS; os == "windows" {
-		return strings.TrimRight(line, "\r\n")
-	}
-	return strings.TrimRight(line, "\n")
+	return strings.TrimRight(line, "\r\n")
 }
 
 func readUint() uint32 {
